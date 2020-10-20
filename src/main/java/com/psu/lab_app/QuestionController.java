@@ -2,9 +2,7 @@ package com.psu.lab_app;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class QuestionController {
@@ -18,5 +16,11 @@ public class QuestionController {
     @GetMapping("/questions")
     List<Question> all() {
         return repository.findAll();
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/questions")
+    Question newQuestion(@RequestBody Question newQuestion) {
+        return repository.save(newQuestion);
     }
 }
