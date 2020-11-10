@@ -1,5 +1,6 @@
 package com.psu.lab_app;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,6 +8,7 @@ import javax.persistence.Id;
 @Entity
 class Question {
     private @Id @GeneratedValue Long id;
+    @Column(length = 2000)
     private String text;
 
     public Question() {}
