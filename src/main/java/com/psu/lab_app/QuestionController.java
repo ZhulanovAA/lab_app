@@ -36,6 +36,7 @@ public class QuestionController {
                 .orElseThrow(() -> new QuestionNotFoundException(id));
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/questions/{id}")
     Question replaceQuestion(@RequestBody Question newQuestion, @PathVariable Long id) {
 
@@ -50,6 +51,7 @@ public class QuestionController {
                 });
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/questions/{id}")
     void deleteQuestion(@PathVariable Long id) {
         repository.deleteById(id);
